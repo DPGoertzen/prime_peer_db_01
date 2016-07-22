@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html ng-app="assignmentApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Assignments</title>
+    <script src="vendors/angular/angular.min.js" charset="utf-8"></script>
+    <script src="scripts/assignmentApp.module.js" charset="utf-8"></script>
+    <script src="scripts/DataService.js" charset="utf-8"></script>
+    <script src="scripts/AssignmentController.js" charset="utf-8"></script>
+    <link rel="stylesheet" href="styles/styles.css" charset="utf-8">
+  </head>
+  <body ng-controller="AssignmentController">
+    <label for="assignment_number">assignment number:</label>
+    <input type="text" id="assignment_number" ng-model="assignment_number" />
+
+    <label for="student_name">student name:</label>
+    <input type="text" id="student_name" ng-model="student_name" />
+
+    <label for="score">score:</label>
+    <input type="text" id="score" ng-model="score" />
+    <button ng-click="postAssignment()">submit</button>
+
+
+
+    <input type="text" id="idNumber" ng-model="idNumber" />
+    <button ng-click="getId(idNumber)">get assignment by id</button>
+      <ul>
+        <li ng-repeat="assignment in data.assignments track by $index">assignment number: {{assignment.assignment_number}} {{assignment.student_name}} score: {{assignment.score}} date completed:{{assignment.date_completed}}</li>
+      </ul>
+
+      <ul>
+        <li>
+          assignment number: {{data.id.assignment_number}}, Name: {{data.id.student_name}}, score: {{data.id.score}} date completed: {{data.id.date_completed}}
+        </li>
+      </ul>
+
+  </body>
+</html>
